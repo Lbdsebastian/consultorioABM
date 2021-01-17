@@ -1,0 +1,26 @@
+<div class="container divApp">
+    <div class="row">
+        <div class="col-lg-10">
+            <app-mostrar-p></app-mostrar-p>
+        </div>
+        <div class="col-lg-2">
+            <!--  cambia el estado de formAgregarPaciente a true  -->
+            <button class="btn btn-success" (click)="agregarP()">
+                Agregar Paciente
+            </button>
+        </div>
+        <hr>
+        <!--  cambia el estado de formAgregarPaciente a false  -->
+        <div *ngIf="formAgregarPaciente" class="col-lg-2">
+            <button class="btn btn-danger" (click)="cancelarAgregarP()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <!--  cuando formAgregarPaciente es true activa el componente para agregar pacientes  -->
+        <div *ngIf="formAgregarPaciente" class="col-lg-12">
+            <app-agregar-p></app-agregar-p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="info">
+            <th th scope="col">#</th>
+            <th th scope="col">Nombre</th>
+            <th th scope="col">Apellido</th>
+            <th th scope="col">Departamento</th>
+            <th th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  ciclo que recorre los elementos del vector listaP, i toma el valor de los indices para la tabla  -->
+        <tr *ngFor="let paciente of listaP, let i = index" class="success">
+            <td>
+                {{ i + 1 }}
+            </td>
+            <td>
+                {{ [paciente.NombrePaciente] }}
+            </td>
+            <td>
+                {{ paciente.ApellidoPaciente }}
+            </td>
+            <td>
+                {{ paciente.Departamento }}
+            </td>
+            <td class="botones">
+                <!--  boton editar/eliminar  -->
+                <button type="button" data-toggle="modal" data-target="#editModal" (click)="editClick(paciente)">
+                    <span class="glyphicon glyphicon-edit"> </span>  
+                </button>
+                <button type="button"  data-toggle="modal" data-target="#editModal" (click)="elimClick(paciente)">
+                    <span class="glyphicon glyphicon-erase"> </span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal editar paciente -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModal"> {{ tituloModal }} </h5> 
+        </div>
+        <div class="modal-body">
+          <app-editar-p 
+          [pac]="pac" *ngIf="activarEditar"></app-editar-p>
+          <app-eliminar-p 
+          *ngIf="activarEliminar" [pacId]="pacId" ></app-eliminar-p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelarClick()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+

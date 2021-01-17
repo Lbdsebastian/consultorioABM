@@ -1,0 +1,15 @@
+<!-- Formulario para agregar departamentos   -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+        <form [formGroup]="departamentoForm" (ngSubmit)="onSubmit(departamentoForm.value)">
+            <div class="form-group">
+                <label for="NombreDepartamento">Nombre</label>
+                <input type="text" id="NombreDepartamento" class="form-control"
+                formControlName="NombreDepartamento">
+                <hr>
+            <button class="btn btn-primary" type="submit">
+                Agregar
+            </button>
+        </div>
+    </form>

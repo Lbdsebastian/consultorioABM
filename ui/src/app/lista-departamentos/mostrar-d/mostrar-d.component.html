@@ -1,0 +1,50 @@
+<!--  Tabla de departamentos  -->
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr class="info">
+            <th th scope="col">#</th>
+            <th th scope="col">Nombre</th>
+            <th th scope="col">Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  ciclo que recorre los elementos de la lista de departamentos  -->
+        <tr *ngFor="let departamento of listaD, let i = index;" class="success">    
+            <td>
+                {{ i + 1 }}
+            </td>
+            <td>
+                {{ departamento.NombreDepartamento }}
+            </td>
+            <!--  botones editar/eliminar  -->
+            <td class="botones">
+                <button type="button" data-toggle="modal" data-target="#editModal" (click)="editClick(departamento)">
+                    <span class="glyphicon glyphicon-edit"> </span>  
+                </button>
+                <button type="button"  data-toggle="modal" data-target="#editModal" (click)="elimClick(departamento)">
+                    <span class="glyphicon glyphicon-erase"> </span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal editar departamento -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true"
+data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModal"> {{ tituloModal }} </h5> 
+        </div>
+        <div class="modal-body">
+          <app-editar-d 
+          [dep]="dep" *ngIf="activarEditar"></app-editar-d>
+          <app-eliminar-d 
+          *ngIf="activarEliminar" [depId]="depId" ></app-eliminar-d>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelarClick()">Cancelar</button>
+      </div>
+    </div>
+  </div>

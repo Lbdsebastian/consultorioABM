@@ -1,0 +1,30 @@
+<!-- Formulario para agregar pacientes -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+        <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit(pacienteForm.value)">
+            <div class="form-group">
+                <label for="NombrePaciente">Nombre</label>
+                <input type="text" id="NombrePaciente" class="form-control"
+                formControlName="NombrePaciente">
+            </div>
+            <div class="form-group">
+                <label for="ApellidoPaciente">Apellido</label>
+                <input type="text" id="ApellidoPaciente" class="form-control"
+                formControlName="ApellidoPaciente">
+            </div>
+            <div class="form-group">
+                <label for="Departamento">Departamento </label>
+                <select name="Departamento" id="Departamento" class="form-control"
+                formControlName="Departamento">
+                    <option *ngFor="let dep of listaD" > {{ dep.NombreDepartamento }} </option>
+                </select>
+            </div>
+            <hr>
+            <button class="btn btn-primary" type="submit">
+                Agregar
+            </button>
+        </form>
+        </div>
+    </div>
+</div>

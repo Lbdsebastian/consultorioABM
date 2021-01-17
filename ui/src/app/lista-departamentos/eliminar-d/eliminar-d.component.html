@@ -1,0 +1,16 @@
+<!-- Confirmación al eliminar departamentos   -->
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8">
+<p>
+    Eliminar:
+</p>
+        <form [formGroup]="elimForm" >
+            <div class="form-group">
+                <label for="NombreDepartamento">{{depId.NombreDepartamento}}</label>
+            </div>
+            <button class="btn btn-primary" type="button" (click)="eliminarD(depId.IdDepartamento)">
+                Eliminar
+            </button>
+        </form>
+    </div>
+</div>
