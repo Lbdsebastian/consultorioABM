@@ -22,7 +22,7 @@ export class MostrarPComponent implements OnInit {
   }
 
   
-  mostrarPacientes(){
+  async mostrarPacientes(){
     this.servicio.obtenerPacientes().subscribe(datos => {
       this.listaP = datos;
     });

@@ -19,10 +19,10 @@ export class AgregarDComponent implements OnInit {
     });
   }
 
-  onSubmit(valor: FormGroup){
+ async onSubmit(valor: FormGroup){
     this.servicio.crearDepartamentos(valor).subscribe((response) => 
     console.log(response),
     (error)=> console.log(error));
-    window.location.reload();
+     window.location.reload();
   }
 }

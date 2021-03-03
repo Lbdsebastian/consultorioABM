@@ -27,7 +27,7 @@ export class EditarPComponent implements OnInit {
     this.mostrarDepartamentos();
   }
 
-  editar(id: any, valor: any){
+  async editar(id: any, valor: any){
   const IdPac = this.pac.IdPaciente;
   id = IdPac;
   this.servicio.modificarPaciente(id,valor).subscribe((response) => 
@@ -36,7 +36,7 @@ export class EditarPComponent implements OnInit {
   window.location.reload();
  }
  
- mostrarDepartamentos(){
+ async mostrarDepartamentos(){
   this.servicio.obtenerDepartamentos().subscribe(datos => {
     this.listaD = datos;
   })

@@ -21,7 +21,7 @@ export class MostrarDComponent implements OnInit {
     this.mostrarDepartamentos();
   }
 
-  mostrarDepartamentos(){
+  async mostrarDepartamentos(){
     this.servicio.obtenerDepartamentos().subscribe(datos => {
       this.listaD = datos;
     })

@@ -23,7 +23,7 @@ export class EliminarDComponent implements OnInit {
     });
   }
 
-  eliminarD(id: number){
+  async eliminarD(id: number){
     this.servicio.eliminarDepartamentos(id).subscribe((response) => 
     console.log(response),
     (error)=> console.log(error));

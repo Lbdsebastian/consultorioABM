@@ -25,7 +25,7 @@ export class EliminarPComponent implements OnInit {
   }
 
 
-  eliminarP(id: number){
+  async eliminarP(id: number){
     this.servicio.eliminarPaciente(id).subscribe((response) => 
     console.log(response),
     (error)=> console.log(error));

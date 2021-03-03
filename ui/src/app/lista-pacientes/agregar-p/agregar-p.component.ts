@@ -25,14 +25,14 @@ export class AgregarPComponent implements OnInit {
     this.mostrarDepartamentos();
   }
 
-  onSubmit(valor: FormGroup){
+  async onSubmit(valor: FormGroup){
     this.servicio.crearPaciente(valor).subscribe((response) => 
     console.log(response),
     (error)=> console.log(error));
     window.location.reload();
   }
 
-  mostrarDepartamentos(){
+  async mostrarDepartamentos(){
     this.servicio.obtenerDepartamentos().subscribe(datos => {
       this.listaD = datos;
     })

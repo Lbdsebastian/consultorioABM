@@ -23,7 +23,7 @@ export class EditarDComponent implements OnInit {
     });
   }
 
-  editar(id: any, valor: any){
+  async editar(id: any, valor: any){
     const idDep = this.dep.IdDepartamento;
     id = idDep;
     this.servicio.modificarDepartamentos(id,valor).subscribe((response) => 
